@@ -33,7 +33,69 @@
 </head>
 
 <body>
-  <div class="container">
+
+<section id="products">
+<div class="row">
+  <p id="notice"><%= notice %></p>
+
+  <p class="navbar-text pull-left">
+  <% if customer_signed_in? %>
+    Logged in as <strong><%= current_customer.email %></strong>.
+    <%= link_to 'Edit profile', edit_customer_registration_path, :class => 'navbar-link' %> |
+    <%= link_to "Logout", destroy_customer_session_path, method: :delete, :class => 'navbar-link'  %>
+  <% else %>
+    <%= link_to "Sign up", new_customer_registration_path, :class => 'navbar-link'  %> |
+    <%= link_to "Login", new_customer_session_path, :class => 'navbar-link'  %>
+  <% end %>
+  </p>
+<!--   <div class="col-xs-offset-1 pull-right">
+    <h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>
+  </div> -->
+
+
+  <div class="headerimg">
+<!--   <div class="ui secondary menu">
+  <a class="item">
+    <p id="notice"><%= notice %></p>
+
+  <p class="navbar-text pull-left">
+  <% if customer_signed_in? %>
+    Logged in as <strong><%= current_customer.email %></strong>.
+    <%= link_to 'Edit profile', edit_customer_registration_path, :class => 'navbar-link' %> |
+    <%= link_to "Logout", destroy_customer_session_path, method: :delete, :class => 'navbar-link'  %>
+  <% else %>
+    <%= link_to "Sign up", new_customer_registration_path, :class => 'navbar-link'  %> |
+    <%= link_to "Login", new_customer_session_path, :class => 'navbar-link'  %>
+  <% end %>
+  </p>
+  </a>
+  <a class="item">
+    Products
+  </a>
+</div> -->
+<!--     <div class="nav-row row">
+        <div class="col-xs-2 col-xs-offset-1 headerlinks"><%= link_to "Home", root_path %></div>
+        <div class="col-xs-2 headerlinks"><%= link_to "Products", products_path %></div>
+        <div class="col-xs-2 col-xs-offset-2 headerlinks"><%= link_to "My Cart", cart_path %></div>
+        <div class="col-xs-2 headerlinks"><%= link_to "Verify", root_path %></div>
+    </div> -->
+<br><br><br>
+    <div class="ui centered grid">
+        <div class="two wide column"></div>
+        <div class="two wide column headerlinks"><%= link_to "Home", root_path %></div>
+        <div class="two wide column headerlinks"><%= link_to "Products", products_path %></div>
+        <div class="four wide column headerlinks"><%= link_to " ",root_path %></div>
+        <div class="one wide column"></div>
+        <div class="two wide column headerlinks"><%= link_to "My Cart", cart_path %></div>
+        <div class="two wide column headerlinks"><%= link_to "Verify", root_path %></div>
+        <div class="one wide column"></div>
+  </div>
+  <br>
+
+</div>
+<br>
+</section>
+  <!-- <div class="container">
     <div class="row">
       <div class="col-xs-6">
         <h1><%= link_to "My Store", root_path %></h1>
@@ -42,8 +104,11 @@
         <h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>
       </div>
     </div>
-    <hr>
+    <hr> -->
     <%= yield %>
+  <!-- </div> -->
+  <br><br>
+  <div class="footerimg">
   </div>
 </body>
 </html>
